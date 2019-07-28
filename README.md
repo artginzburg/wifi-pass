@@ -13,8 +13,9 @@ curl -L https://raw.github.com/DaFuqtor/wifi-pass/master/wifi-pass.sh -o /usr/lo
 wifi-pass [option] [ssid]
 ```
 
-[ssid] left empty means current Wi-Fi network
-using without options just outputs password
+- [ssid] left empty means current Wi-Fi network
+
+- Using without options just outputs password
 
 ### Options
 
