@@ -19,9 +19,15 @@ wifi-pass [option] [ssid]
 
 ### Options
 
+#### Copy the password to clipboard
+
 ```
--c, --copy       Copy the password to clipboard
--qr, --qrencode  Create QR-code for Wi-Fi connection
--V, --version    Output version
--h, --help       This message.
+-c, --copy
+```
+
+#### Create QR-code for Wi-Fi connection
+> To do this, you need to `brew install qrencode` first
+
+```
+-qr, --qrencode
 ```
