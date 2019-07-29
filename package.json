@@ -1,5 +1,5 @@
 {
-    "name": "wifi-pas",
+    "name": "wifi-pass",
     "version": "0.1",
     "description": "Copy, QR encode or just get the password of current Wi-Fi connection",
     "global": "true",
