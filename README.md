@@ -1,5 +1,5 @@
-# wifi-pass
- Bash tool to QR encode, copy or just get the password of current Wi-Fi connection
+<h1 align="center">wifi-pass</h1>
+<p align="center">Bash tool to QR encode, copy or just get the password of current Wi-Fi connection</p>
 
 ## Install
 
