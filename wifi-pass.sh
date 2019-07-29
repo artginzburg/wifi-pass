@@ -46,7 +46,7 @@ if [ "$1" != "" ]; then
       exit
       ;;
 	  * )
-			echo "\033[90m Keychain prompt --> Get password for \"$1\". \033[39m"
+	    # echo "\033[90m Keychain prompt --> Get password for \"$1\". \033[39m"
 	    security find-generic-password -D "AirPort network password" -a "$1" -gw
 	esac
 else
