@@ -5,3 +5,6 @@ install:
 
 uninstall:
 	rm -f $(PREFIX)/bin/wifi-pass
+
+remove:
+	rm -rf $(pwd) && cd

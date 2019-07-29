@@ -3,8 +3,24 @@
 
 ## Install
 
+### Using [bpkg](https://github.com/bpkg/bpkg)
+
+```
+bpkg install -g DaFuqtor/wifi-pass
+```
+
+### Using `curl`
+
 ```
 curl -L https://raw.github.com/DaFuqtor/wifi-pass/master/wifi-pass.sh -o /usr/local/bin/wifi-pass && chmod +x /usr/local/bin/wifi-pass
+```
+
+### Using Source Code
+
+```
+git clone https://github.com/DaFuqtor/wifi-pass.git
+cd wifi-pass
+make install
 ```
 
 ## Usage
