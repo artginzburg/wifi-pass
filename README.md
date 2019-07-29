@@ -42,7 +42,7 @@ wifi-pass [option] [ssid]
 ```
 
 #### Create QR-code for Wi-Fi connection
-> To do this, you need to `brew install qrencode` first
+> To do this, you need [Homebrew](https://brew.sh/) to `brew install `[`qrencode`](https://fukuchi.org/works/qrencode/index.html.en) first
 
 ```powershell
 -qr, --qrencode
