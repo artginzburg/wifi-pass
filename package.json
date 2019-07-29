@@ -4,8 +4,5 @@
     "description": "Copy, QR encode or just get the password of current Wi-Fi connection",
     "global": "1",
     "scripts": [ "wifi-pass.sh" ],
-    "install": "install -b wifi-pass.sh ${PREFIX:-/usr/local}/bin/wifi-pass",
-    "dependencies": {
-        "fukuchi/libqrencode": "master"
-    }
+    "install": "install -b wifi-pass.sh ${PREFIX:-/usr/local}/bin/wifi-pass"
 }
