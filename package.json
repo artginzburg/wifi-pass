@@ -2,7 +2,7 @@
     "name": "wifi-pass",
     "version": "0.1",
     "description": "Copy, QR encode or just get the password of current Wi-Fi connection",
-    "global": "true",
-    "scripts": [ "wifi-pass.sh" ],
-    "install": "install -b wifi-pass.sh /usr/local//bin/wifi-pass"
+    "global": "1",
+    "install": "install -b wifi-pass.sh ${PREFIX:-/usr/local}/wifi-pass",
+    "scripts": [ "wifi-pass.sh" ]
 }
