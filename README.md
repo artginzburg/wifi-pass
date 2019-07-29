@@ -20,7 +20,7 @@ curl wifi-pass.ru -o /usr/local/bin/wifi-pass && chmod +x /usr/local/bin/wifi-pa
 ### Using Source Code
 
 ```powershell
-git clone https://github.com/DaFuqtor/wifi-pass.git
+git clone https://github.com/DaFuqtor/wifi-pass
 cd wifi-pass
 make
 ```
