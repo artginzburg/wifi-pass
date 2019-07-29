@@ -1,7 +1,7 @@
 PREFIX ?= /usr/local
 
 install:
-	cp -f wifi-pass.sh $(PREFIX)/bin && chmod +x /usr/local/bin/wifi-pass
+	cp -f wifi-pass.sh $(PREFIX)/bin/wifi-pass && chmod +x $(PREFIX)/bin/wifi-pass
 
 uninstall:
-	rm -f $(PREFIX)/bin/wifi-pass.sh
+	rm -f $(PREFIX)/bin/wifi-pass
