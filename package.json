@@ -6,6 +6,6 @@
     "scripts": [ "wifi-pass.sh" ],
     "install": "install -b wifi-pass.sh ${PREFIX:-/usr/local}/bin/wifi-pass",
     "dependencies": {
-        "qrencode": "master"
+        "fukuchi/libqrencode": "master"
     }
 }
