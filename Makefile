@@ -7,4 +7,4 @@ uninstall:
 	rm -f $(PREFIX)/bin/wifi-pass
 
 remove:
-	rm -rf $(shell pwd) && cd
+	rm -rf $(shell pwd)
