@@ -1,0 +1,11 @@
+{
+    "name": "wifi-pas",
+    "version": "0.1",
+    "description": "Copy, QR encode or just get the password of current Wi-Fi connection",
+    "global": "true",
+    "scripts": [ "wifi-pass.sh" ],
+    "install": "make install",
+    "dependencies": {
+        "qrencode": "master"
+    }
+}
