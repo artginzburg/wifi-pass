@@ -1,10 +1,15 @@
 PREFIX ?= /usr/local
+PWD = $(shell pwd)
+WP = wifi-pass
 
 install:
-	cp -f wifi-pass.sh $(PREFIX)/bin/wifi-pass && chmod +x $(PREFIX)/bin/wifi-pass
+	cp -f $(WP).sh $(PREFIX)/bin/$(WP) && chmod +x $(PREFIX)/bin/$(WP)
 
 uninstall:
-	rm -f $(PREFIX)/bin/wifi-pass
+	rm -f $(PREFIX)/bin/$(WP)
 
 remove:
-	rm -rf $(shell pwd)
+	rm -rf $(PWD)
+
+trash:
+	mv $(PWD) ~/.Trash/$(WP)
