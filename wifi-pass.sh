@@ -1,19 +1,21 @@
 #!/usr/bin/env sh
 
-VERSION=0.2.2
+VERSION=0.2.3
+WP='wifi-pass'
 
 usage() {
   cat <<EOF
 
-  Usage: wifi-pass [-hV] [options] [<ssid>]
+  Usage: $WP [-hV] [options] [<ssid>]
     <ssid> left empty means current Wi-Fi network
     using without options just outputs password
 
   Options:
-    -c, --copy       Copy the password to clipboard
-    -qr, --qrencode  Create QR-code for Wi-Fi connection
-    -V, --version    Output version
-    -h, --help       This message.
+    -c,  --copy       Copy the password to clipboard
+    -qr, --qrencode   Create QR-code for Wi-Fi connection
+    -V,  --version    Output version
+    -u,  --update     Check for update and ask to install
+    -h,  --help       This message.
 
 EOF
 }
@@ -32,6 +34,25 @@ wifi_pass() {
         echo "$VERSION"
         return 0
         ;;
+      -u|--update)
+				gitver=$(curl -s https://raw.githubusercontent.com/DaFuqtor/$WP/master/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]')
+				if [ "$gitver" = "$VERSION" ]; then
+					echo "$WP $VERSION"
+					echo "  Already up to date."
+				else
+					echo "$WP $VERSION"
+					echo "  Latest version is $gitver"
+					
+					read -r -p "Do you want to update? [Enter/Ctrl+C]" response
+					if [[ $response =~ ^( ) ]] || [[ -z $response ]]; then
+						echo "\n - Downloading latest $WP ($gitver)"
+						curl $WP.ru | bash && echo " - Update completed!\n"
+					else
+						echo "  Enjoy the outdated $WP"
+					fi
+				fi
+				return 0
+				;;
       -c|--copy)
 				copy=1
 				;;
