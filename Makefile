@@ -8,6 +8,9 @@ install:
 uninstall:
 	rm -f $(PREFIX)/bin/$(WP)
 
+reload:
+	make uninstall && make
+
 remove:
 	rm -rf $(PWD)
 

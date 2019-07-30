@@ -28,12 +28,12 @@ make
 ## Usage
 
 ```powershell
-wifi-pass [option] [ssid]
+wifi-pass [-hV] [options] <ssid>
 ```
 
-- [ssid] left empty means current Wi-Fi network
+- SSID left empty means **current Wi-Fi network**
 
-- Using without options just outputs password
+- Using **without options** just outputs password
 
 ### Options
 
