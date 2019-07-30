@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-VERSION=0.2.1
+VERSION=0.2.2
 
 usage() {
   cat <<EOF
@@ -89,10 +89,10 @@ wifi_pass() {
 	  fi
 
 	  if [ "$qr" ]; then
-	    if brew ls --versions qrencode > /dev/null; then
+	    if command -v qrencode > /dev/null; then
 	    	qrencode -o ~/Desktop/$name.png -s 20 -m 3 "WIFI:S:$name;T:WPA;P:$pass;;"
 	    else
-	    	echo "Missing brew qrencode package, run > brew install qrencode"
+	    	echo "Missing qrencode package, run > brew install qrencode"
 	    fi
 	  fi
 

@@ -25,7 +25,7 @@ cd wifi-pass
 make
 ```
 
-> Also allows to `make [reload | uninstall]`
+> Also allows to `make [ reload, uninstall ]`
 
 ## Usage
 

@@ -1,5 +1,5 @@
 PREFIX ?= /usr/local
-PWD = $(shell pwd)
+PWD ?= $(shell pwd)
 WP = wifi-pass
 
 install:
@@ -10,6 +10,9 @@ uninstall:
 
 reload:
 	make uninstall && make
+
+update:
+	git clone --no-checkout https://github.com/DaFuqtor/$(WP) ~/$(WP)/$(WP).tmp && rm -rf ~/$(WP)/.git && mv ~/$(WP)/$(WP).tmp/.git ~/$(WP)/ && rmdir ~/$(WP)/$(WP).tmp && cd ~/$(WP) && git reset --hard HEAD
 
 remove:
 	rm -rf $(PWD)
