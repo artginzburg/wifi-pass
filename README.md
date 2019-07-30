@@ -40,5 +40,3 @@ wifi-pass [-hV] [options] [<ssid>]
 - SSID left empty means **current Wi-Fi network**
 
 - Using **without options** just outputs password
-
-  > To use `-qr`, you need [Homebrew](https://brew.sh/) to `brew install `[`qrencode`](https://fukuchi.org/works/qrencode/index.html.en) first
