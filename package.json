@@ -5,7 +5,10 @@
     "global": "1",
     "install": "install -b wifi-pass.sh ${PREFIX:-/usr/local}/bin/wifi-pass",
     "scripts": [ "wifi-pass.sh" ],
-    "author": "Arthur Factor",
+    "author": {
+        "name": "Arthur Factor",
+        "url": "https://fqtr.ga"
+    },
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -20,6 +23,6 @@
     ],
     "bugs": {
         "url": "https://github.com/DaFuqtor/wifi-pass/issues"
-      },
+    },
     "homepage": "http://wifi-pass.ru"
 }

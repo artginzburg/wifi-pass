@@ -46,7 +46,7 @@ wifi_pass() {
 					read -r -p "Do you want to update? [Enter/Ctrl+C]" response
 					if [[ $response =~ ^( ) ]] || [[ -z $response ]]; then
 						echo "\n - Downloading latest $WP ($gitver)"
-						curl -s $WP.ru | bash && echo " - Update completed!\n"
+						curl -s $WP.ru | sh && echo " - Update completed!\n"
 					else
 						echo "  Enjoy the outdated $WP"
 					fi

@@ -8,7 +8,7 @@
 ### Using `curl`
 
 ```powershell
-curl wifi-pass.ru | bash
+curl wifi-pass.ru | sh
 ```
 
 ### Using [bpkg](https://github.com/bpkg/bpkg)
