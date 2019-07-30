@@ -5,16 +5,16 @@
 
 ## Install
 
-### Using [bpkg](https://github.com/bpkg/bpkg)
-
-```powershell
-bpkg install -g DaFuqtor/wifi-pass
-```
-
 ### Using `curl`
 
 ```powershell
 curl wifi-pass.ru | bash
+```
+
+### Using [bpkg](https://github.com/bpkg/bpkg)
+
+```powershell
+bpkg install -g DaFuqtor/wifi-pass
 ```
 
 ### Using Source Code
@@ -25,27 +25,19 @@ cd wifi-pass
 make
 ```
 
+> Also allows to `make [reload | uninstall]`
+
 ## Usage
 
 ```powershell
 wifi-pass [-hV] [options] <ssid>
+        # Options:
+          [-c, --copy]      # Copy the password to clipboard
+          [-qr, --qrencode] # Create QR-code for Wi-Fi connection
 ```
 
 - SSID left empty means **current Wi-Fi network**
 
 - Using **without options** just outputs password
 
-### Options
-
-#### Copy the password to clipboard
-
-```powershell
--c, --copy
-```
-
-#### Create QR-code for Wi-Fi connection
-> To do this, you need [Homebrew](https://brew.sh/) to `brew install `[`qrencode`](https://fukuchi.org/works/qrencode/index.html.en) first
-
-```powershell
--qr, --qrencode
-```
+  > To use `-qr`, you need [Homebrew](https://brew.sh/) to `brew install `[`qrencode`](https://fukuchi.org/works/qrencode/index.html.en) first

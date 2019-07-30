@@ -89,7 +89,11 @@ wifi_pass() {
 	  fi
 
 	  if [ "$qr" ]; then
-	    qrencode -o ~/Desktop/$name.png -s 20 -m 3 "WIFI:S:$name;T:WPA;P:$pass;;"
+	    if brew ls --versions qrencode > /dev/null; then
+	    	qrencode -o ~/Desktop/$name.png -s 20 -m 3 "WIFI:S:$name;T:WPA;P:$pass;;"
+	    else
+	    	echo "Missing brew qrencode package, run > brew install qrencode"
+	    fi
 	  fi
 
 		if ! ([ "$qr" ] || [ "$copy" ]); then
