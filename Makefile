@@ -15,7 +15,4 @@ upgrade:
 	make update && make
 
 remove:
-	rm -rf $(PWD)
-
-trash:
-	mv $(PWD) ~/.Trash/$(WP)
+	mv $(PWD) ~/.Trash/$(WP) || rm -rf $(PWD)
