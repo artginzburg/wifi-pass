@@ -21,7 +21,7 @@ EOF
 copy=
 qr=
 
-wifi-pass() {
+wifi_pass() {
   for opt in "${@}"; do
     case "$opt" in
       -h|--help)
@@ -102,8 +102,8 @@ wifi-pass() {
 }
 
 if [[ ${BASH_SOURCE[0]} != $0 ]]; then
-  export -f wifi-pass
+  export -f wifi_pass
 else
-  wifi-pass "${@}"
+  wifi_pass "${@}"
   exit $?
 fi
