@@ -3,19 +3,16 @@ PWD ?= $(shell pwd)
 WP = wifi-pass
 
 install:
-	cp -f $(WP).sh $(PREFIX)/bin/$(WP) && chmod +x $(PREFIX)/bin/$(WP)
+	install -b $(WP).sh ${PREFIX}/bin/$(WP)
 
 uninstall:
-	rm -f $(PREFIX)/bin/$(WP)
-
-reload:
-	make uninstall && make
+	rm -f $(PREFIX)/bin/$(WP) $(PREFIX)/bin/$(WP).old
 
 update:
 	git clone --no-checkout https://github.com/DaFuqtor/$(WP) ~/$(WP)/$(WP).tmp && rm -rf ~/$(WP)/.git && mv ~/$(WP)/$(WP).tmp/.git ~/$(WP)/ && rmdir ~/$(WP)/$(WP).tmp && cd ~/$(WP) && git reset --hard HEAD
 
 upgrade:
-	make update && make reload
+	make update && make
 
 remove:
 	rm -rf $(PWD)
