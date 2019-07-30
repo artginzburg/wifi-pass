@@ -14,7 +14,7 @@ bpkg install -g DaFuqtor/wifi-pass
 ### Using `curl`
 
 ```powershell
-curl -o- wifi-pass.ru | bash
+curl wifi-pass.ru | bash
 ```
 
 ### Using Source Code
