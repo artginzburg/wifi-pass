@@ -5,7 +5,7 @@ VERSION=0.2.2
 usage() {
   cat <<EOF
 
-  Usage: wifi-pass [-hV] [options] <ssid>
+  Usage: wifi-pass [-hV] [options] [<ssid>]
     <ssid> left empty means current Wi-Fi network
     using without options just outputs password
 

@@ -30,7 +30,7 @@ make
 ## Usage
 
 ```powershell
-wifi-pass [-hV] [options] <ssid>
+wifi-pass [-hV] [options] [<ssid>]
         # Options:
           [-c, --copy]      # Copy the password to clipboard
           [-qr, --qrencode] # Create QR-code for Wi-Fi connection
