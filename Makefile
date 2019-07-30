@@ -2,7 +2,10 @@ PREFIX ?= /usr/local
 PWD ?= $(shell pwd)
 WP = wifi-pass
 
-.PHONY: all install uninstall update upgrade remove
+.PHONY: install all uninstall update upgrade remove
+
+install:
+	install -b $(WP).sh ${PREFIX}/bin/$(WP)
 
 all:
 	@echo "\nUsage: make [option]" \
@@ -11,9 +14,6 @@ all:
 	      "\n            update      \033[90m# Updates only the repo\033[39m" \
 	      "\n            upgrade     \033[90m# Makes update & install\033[39m" \
 	      "\n            remove      \033[90m# Moves to trash or deletes\n"
-
-install:
-	install -b $(WP).sh ${PREFIX}/bin/$(WP)
 
 uninstall:
 	rm -f $(PREFIX)/bin/$(WP) $(PREFIX)/bin/$(WP).old
