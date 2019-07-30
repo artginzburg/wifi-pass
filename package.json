@@ -1,8 +1,25 @@
 {
     "name": "wifi-pass",
-    "version": "0.2",
+    "version": "0.2.1",
     "description": "Copy, QR encode or just get the password of current Wi-Fi connection",
     "global": "1",
     "install": "install -b wifi-pass.sh ${PREFIX:-/usr/local}/bin/wifi-pass",
-    "scripts": [ "wifi-pass.sh" ]
+    "scripts": [ "wifi-pass.sh" ],
+    "author": "Arthur Factor",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DaFuqtor/wifi-pass.git"
+    },
+    "keywords": [
+        "wifi",
+        "password",
+        "pass",
+        "wifi-pass",
+        "wifi-password"
+    ],
+    "bugs": {
+        "url": "https://github.com/DaFuqtor/wifi-pass/issues"
+      },
+    "homepage": "http://wifi-pass.ru"
 }
