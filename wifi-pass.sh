@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-VERSION=0.2.4
+VERSION=0.2.5
 WP='wifi-pass'
 
 usage() {
@@ -35,7 +35,7 @@ wifi_pass() {
         return 0
         ;;
       -u|--update)
-        gitver=$(curl -s https://raw.githubusercontent.com/DaFuqtor/$WP/master/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]')
+        gitver=$(curl -s https://raw.githubusercontent.com/DaFuqtor/$WP/master/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[:space:]')
         echo "$WP $VERSION"
         if [ "$gitver" = "$VERSION" ]; then
           echo "  Already up to date."
@@ -51,6 +51,13 @@ wifi_pass() {
             fi
           else
             echo "  Couldn't check for update!"
+            wifiinterface=$(networksetup -listallhardwareports | grep -A 1 Wi-Fi | grep Device | awk '{print $2}')
+            if [ "$(networksetup -getairportpower "$wifiinterface" | awk '{print $4}')" = "Off" ]; then
+              read -r -p "Wi-Fi Adapter is disabled. Maybe you should consider turning it on? [Enter/Ctrl+C]" response
+              if [[ $response =~ ^( ) ]] || [[ -z $response ]]; then
+                networksetup -setairportpower "$wifiinterface" On && sleep 1 && wifi_pass "${@}"
+              fi
+            fi
             exit 1
           fi
         fi
@@ -86,10 +93,10 @@ wifi_pass() {
         fi
         ;;
       *)
-        if ! [ "$name" ]; then
-          name="$opt"
-        else
+        if [ "$name" ]; then
           name="$name $opt"
+        else
+          name="$opt"
         fi
     esac
   done
@@ -97,7 +104,12 @@ wifi_pass() {
   ssid=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}')
 
   if ! [ "$name" ]; then
-    name="$ssid"
+    if [ "$ssid" ]; then
+      name="$ssid"
+    else
+      echo "No SSID specified, can't grab it from current network"
+      exit 1
+    fi
   fi
 
   echo "\033[90m Keychain prompt --> \c"
@@ -117,7 +129,7 @@ wifi_pass() {
 
   echo " for \"$name\". \033[39m"
 
-  pass=`security find-generic-password -D 'AirPort network password' -a "$name" -gw`
+  pass=$(security find-generic-password -D 'AirPort network password' -a "$name" -gw)
 
   # additional messages could be suppressed replacing '-gw' with '&> /dev/null'
   # so doing a check first if Keychain even has this Wi-Fi network saved
@@ -140,7 +152,7 @@ wifi_pass() {
     fi
 
     if [ "$qr" ]; then
-    qrencode -o ~/Desktop/$name.png -s 20 -m 3 "WIFI:S:$name;T:WPA;P:$pass;;"
+      qrencode -o ~/Desktop/"$name".png -s 20 -m 3 "WIFI:S:$name;T:WPA;P:$pass;;"
     fi
 
     if ! ([ "$qr" ] || [ "$copy" ]); then
