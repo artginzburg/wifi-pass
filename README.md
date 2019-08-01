@@ -5,13 +5,19 @@
 
 ## Install
 
+### Using [Homebrew](//brew.sh)
+
+```powershell
+brew install dafuqtor/dafuqtor/wifi-pass
+```
+
 ### Using `curl`
 
 ```powershell
 curl wifi-pass.ru | sh
 ```
 
-### Using [bpkg](https://github.com/bpkg/bpkg)
+### Using [bpkg](//github.com/bpkg/bpkg)
 
 ```powershell
 bpkg install -g DaFuqtor/wifi-pass

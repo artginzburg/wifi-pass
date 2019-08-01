@@ -3,5 +3,4 @@
 - [ ] -p, --password — Add the ability to specify a desired password to be used instead of the stored one
 - [ ] -l, --list — Display a list of stored Wi-Fi networks (SSIDs) to choose from
 - [ ] Make fully colored interface
-- [ ] Fix [Homebrew formula](https://github.com/DaFuqtor/homebrew-DaFuqtor/blob/master/wifi-pass.rb)
-  - It's not working at the moment, giving installation error
+- [x] Fix [Homebrew formula](https://github.com/DaFuqtor/homebrew-DaFuqtor/blob/master/wifi-pass.rb)
