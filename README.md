@@ -17,12 +17,6 @@ brew install dafuqtor/dafuqtor/wifi-pass
 curl wifi-pass.ru | sh
 ```
 
-### Using [bpkg](//github.com/bpkg/bpkg)
-
-```powershell
-bpkg install -g DaFuqtor/wifi-pass
-```
-
 ### Using Source Code
 
 ```powershell

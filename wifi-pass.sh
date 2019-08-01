@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-VERSION=0.2.6
+VERSION=0.2.7
 WP='wifi-pass'
 
 usage() {
@@ -37,7 +37,7 @@ wifi_pass() {
       -u|--update)
         echo "$WP $VERSION"
         printf "  Checking for the update...\r"
-        gitver=$(curl -s https://raw.githubusercontent.com/DaFuqtor/$WP/master/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[:space:]')
+        gitver=$(curl -s https://api.github.com/repos/DaFuqtor/$WP/releases/latest | grep tag_name | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[:space:]')
         if [ "$gitver" = "$VERSION" ]; then
           echo "  Already up to date.       "
         else
@@ -45,8 +45,12 @@ wifi_pass() {
             echo "  Latest version is $gitver     "
             read -r -p "Do you want to update? [Enter/Ctrl+C]" response
             if [[ $response =~ ^( ) ]] || [[ -z $response ]]; then
-              echo "\n - Downloading latest $WP ($gitver)"
-              curl -s $WP.ru | sh && echo " - Update completed!\n"
+              if command -v brew > /dev/null && brew list wifi-pass > /dev/null; then
+                 brew upgrade wifi-pass
+              else
+                echo "\n - Downloading latest $WP ($gitver)"
+                curl -s $WP.ru | sh && echo " - Update completed!\n"
+              fi
             else
               echo "  Enjoy the outdated $WP"
             fi
