@@ -45,7 +45,7 @@ wifi_pass() {
             echo "  Latest version is $gitver     "
             read -r -p "Do you want to update? [Enter/Ctrl+C]" response
             if [[ $response =~ ^( ) ]] || [[ -z $response ]]; then
-              if command -v brew > /dev/null && brew list wifi-pass > /dev/null; then
+              if command -v brew > /dev/null && brew list wifi-pass &> /dev/null; then
                  brew upgrade wifi-pass
               else
                 echo "\n - Downloading latest $WP ($gitver)"
