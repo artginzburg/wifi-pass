@@ -1,4 +1,4 @@
-- [ ] Check if password exists before prompting to get it
+- [x] Check if password exists before prompting to get it
   - replace '-gw' with '&> /dev/null' to transform it from prompt to check
 - [ ] -p, --password — Add the ability to specify a desired password to be used instead of the stored one
 - [ ] -l, --list — Display a list of stored Wi-Fi networks (SSIDs) to choose from

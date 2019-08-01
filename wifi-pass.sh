@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-VERSION=0.2.5
+VERSION=0.2.6
 WP='wifi-pass'
 
 usage() {
@@ -35,13 +35,14 @@ wifi_pass() {
         return 0
         ;;
       -u|--update)
-        gitver=$(curl -s https://raw.githubusercontent.com/DaFuqtor/$WP/master/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[:space:]')
         echo "$WP $VERSION"
+        printf "  Checking for the update...\r"
+        gitver=$(curl -s https://raw.githubusercontent.com/DaFuqtor/$WP/master/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[:space:]')
         if [ "$gitver" = "$VERSION" ]; then
-          echo "  Already up to date."
+          echo "  Already up to date.       "
         else
           if [ "$gitver" ]; then
-            echo "  Latest version is $gitver"
+            echo "  Latest version is $gitver     "
             read -r -p "Do you want to update? [Enter/Ctrl+C]" response
             if [[ $response =~ ^( ) ]] || [[ -z $response ]]; then
               echo "\n - Downloading latest $WP ($gitver)"
@@ -129,18 +130,18 @@ wifi_pass() {
 
   echo " for \"$name\". \033[39m"
 
-  pass=$(security find-generic-password -D 'AirPort network password' -a "$name" -gw)
-
-  # additional messages could be suppressed replacing '-gw' with '&> /dev/null'
-  # so doing a check first if Keychain even has this Wi-Fi network saved
-  # need to rewrite it a bit later
+  if security find-generic-password -D 'AirPort network password' -a "$name" &> /dev/null; then
+    pass=$(security find-generic-password -D 'AirPort network password' -a "$name" -gw)
+  else
+    security find-generic-password -D 'AirPort network password' -a "$name" &> /dev/null
+  fi
 
   case "$?" in
-    "128")
+    128)
       echo "\033[90m Cancelled getting password \033[39m"
       exit 128
       ;;
-    "44")
+    44)
       echo "\033[90m Your Keychain hasn't any password for the requested SSID \033[39m"
       exit 44
       ;;
