@@ -35,6 +35,7 @@ wifi-pass [-hV] [options] [<ssid>]
         # Options:
           [-c,  --copy]      # Copy the password to clipboard
           [-qr, --qrencode]  # Create QR-code for Wi-Fi connection
+          [-l,  --list]      # Display a list of all stored networks
 ```
 
 - SSID left empty means **current Wi-Fi network**
