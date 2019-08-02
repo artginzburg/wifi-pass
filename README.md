@@ -8,7 +8,7 @@
 ### Using [Homebrew](//brew.sh)
 
 ```powershell
-brew install dafuqtor/dafuqtor/wifi-pass
+brew install dafuqtor/tap/wifi-pass
 ```
 
 ### Using `curl`
