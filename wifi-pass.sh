@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-VERSION=0.2.7
+VERSION=0.2.8
 WP='wifi-pass'
 
 usage() {
@@ -13,12 +13,15 @@ usage() {
   Options:
     -c,  --copy       Copy the password to clipboard
     -qr, --qrencode   Create QR-code for Wi-Fi connection
+    -l,  --list       Search for stored networks
     -V,  --version    Output version
     -u,  --update     Check for update and ask to install
     -h,  --help       This message.
 
 EOF
 }
+
+wifi_interface=$(networksetup -listallhardwareports | grep -A 1 Wi-Fi | grep Device | awk '{print $2}')
 
 copy=
 qr=
@@ -56,16 +59,23 @@ wifi_pass() {
             fi
           else
             echo "  Couldn't check for update!"
-            wifiinterface=$(networksetup -listallhardwareports | grep -A 1 Wi-Fi | grep Device | awk '{print $2}')
-            if [ "$(networksetup -getairportpower "$wifiinterface" | awk '{print $4}')" = "Off" ]; then
+            if [ "$(networksetup -getairportpower "$wifi_interface" | awk '{print $4}')" = "Off" ]; then
               read -r -p "Wi-Fi Adapter is disabled. Maybe you should consider turning it on? [Enter/Ctrl+C]" response
               if [[ $response =~ ^( ) ]] || [[ -z $response ]]; then
-                networksetup -setairportpower "$wifiinterface" On && sleep 1 && wifi_pass "${@}"
+                networksetup -setairportpower "$wifi_interface" On && sleep 1 && wifi_pass "${@}"
               fi
             fi
             exit 1
           fi
         fi
+        return 0
+        ;;
+      -l|--list)
+        list=$(networksetup -listpreferredwirelessnetworks "$wifi_interface" | grep -v "Preferred networks on $wifi_interface")
+        if [ "$2" ]; then
+          search=$(echo "$@" | sed "s/-l //g")
+        fi
+        echo "$list" | grep "$search"
         return 0
         ;;
       -c|--copy)
