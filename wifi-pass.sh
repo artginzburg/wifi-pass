@@ -156,7 +156,7 @@ wifi_pass() {
       exit 128
       ;;
     44)
-      echo "\033[90m Your Keychain hasn't any password for the requested SSID \033[39m"
+      echo "\033[90m Your Keychain has no password for the requested SSID \033[39m"
       exit 44
       ;;
   esac

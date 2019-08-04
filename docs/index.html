@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>wifi-pass</h1>
+    <p>Terminal tool to QR encode, copy or just get the password of current Wi-Fi connection</p>
+    <img src="/preview.png">
+    <h2>Installation</h2>
+    <blockquote>
+        <p>Paste this to your Terminal</code></p>
+    </blockquote>
+    <div class="highlight highlight-source-powershell">
+        <pre>curl wifi<span class="pl-k">-</span>pass.ru <span class="pl-k">|</span> sh</pre>
+    </div>
+
+    <h2>Usage</h2>
+    <div class="highlight highlight-source-powershell">
+        <pre>wifi<span class="pl-k">-</span>pass [<span class="pl-k">-</span><span class="pl-k">hV</span>] [<span class="pl-k">options</span>] [<span class="pl-k">&lt;</span><span class="pl-k">ssid</span><span class="pl-k">&gt;</span>]
+    [<span class="pl-k">-</span><span class="pl-k">u</span><span class="pl-k">,</span>  <span class="pl-k">--</span><span class="pl-k">update</span>]    <span class="pl-c"><span class="pl-c">#</span> Check for update and ask to install<span class="pl-c"></span></span>
+  <span class="pl-c"><span class="pl-c">#</span> Options:<span class="pl-c"></span></span>
+    [<span class="pl-k">-</span><span class="pl-k">c</span><span class="pl-k">,</span>  <span class="pl-k">--</span><span class="pl-k">copy</span>]      <span class="pl-c"><span class="pl-c">#</span> Copy the password to clipboard<span class="pl-c"></span></span>
+    [<span class="pl-k">-</span><span class="pl-k">qr</span><span class="pl-k">,</span> <span class="pl-k">--</span><span class="pl-k">qrencode</span>]  <span class="pl-c"><span class="pl-c">#</span> Create QR-code for Wi-Fi connection<span class="pl-c"></span></span>
+    [<span class="pl-k">-</span><span class="pl-k">l</span><span class="pl-k">,</span>  <span class="pl-k">--</span><span class="pl-k">list</span>]      <span class="pl-c"><span class="pl-c">#</span> Display a list of all stored networks<span class="pl-c"></span></span></pre>
+    </div>
+    <ul>
+        <li>
+            <p>SSID left empty means <strong>current Wi-Fi network</strong></p>
+        </li>
+        <li>
+            <p>Using <strong>without options</strong> just outputs password</p>
+        </li>
+    </ul>
+
+</body>
+
+</html>
