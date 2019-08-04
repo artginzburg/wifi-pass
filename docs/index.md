@@ -1,8 +1,4 @@
-<h1 align="center">wifi-pass</h1>
-
-<p align="center">Terminal tool to QR encode, copy or just get the password of current Wi-Fi connection</p>
-
-[![Preview](preview.png)](https://raw.githubusercontent.com/DaFuqtor/wifi-pass/master/preview.png)
+![Preview](https://raw.githubusercontent.com/DaFuqtor/wifi-pass/master/preview.png)
 
 ## Installation
 
