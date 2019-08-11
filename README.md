@@ -1,8 +1,8 @@
 <h1 align="center">wifi-pass</h1>
 
-<p align="center"><a href="#install"><img src="https://img.shields.io/github/release/dafuqtor/wifi-pass" alt="GitHub release"></a> <a href="#usage"><img alt="GitHub top language" src="https://img.shields.io/github/languages/top/dafuqtor/wifi-pass?color=black"></a> <a href="https://github.com/DaFuqtor/wifi-pass/blob/master/wifi-pass.sh"><img alt="GitHub file size in bytes" src="https://img.shields.io/github/size/dafuqtor/wifi-pass/wifi-pass.sh?label=script%20size"></a></p>
+<p align="center"><a href="#install"><img src="https://img.shields.io/github/release/dafuqtor/wifi-pass" alt="GitHub release"></a> <a href="//travis-ci.org/DaFuqtor/wifi-pass"><img alt="GitHub build" src="https://travis-ci.org/DaFuqtor/wifi-pass.svg"></a> <a href="https://github.com/DaFuqtor/wifi-pass/blob/master/wifi-pass.sh"><img alt="GitHub file size in bytes" src="https://img.shields.io/github/size/dafuqtor/wifi-pass/wifi-pass.sh?label=script%20size"></a></p>
 
-<p align="center">Bash tool to QR encode, copy or just get the password of current Wi-Fi connection</p>
+<p align="center"><b>Bash tool to QR encode, copy or just get the password of current Wi-Fi connection<b></p>
 
 <p><a href="https://github.com/DaFuqtor/wifi-pass/commits/master"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/dafuqtor/wifi-pass?color=darkgray"></a> <a href="https://github.com/DaFuqtor/wifi-pass/blob/master/LICENSE"><img align="right" alt="GitHub" src="https://img.shields.io/github/license/dafuqtor/wifi-pass?color=gray"></a></p>
 
